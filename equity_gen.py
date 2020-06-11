@@ -24,8 +24,11 @@ for i in range(13):
         combs_all.append(','.join(hand_combs))
         combs_single.append(hand_combs[0])
 
+
+
 file = open('output.txt', 'w')
 for i in range(168):
+    print(i)
     for j in range(i + 1, 169):
-        file.write(subprocess.call(f'ps-eval {combs_all[i]} {combs_single[j]}'))
+        file.write(subprocess.getoutput(f'ps-eval {combs_all[i]} {combs_single[j]}')+'\n\n')
 file.close()
